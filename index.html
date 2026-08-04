@@ -1,91 +1,179 @@
+
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>LeanBuild</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="manifest" href="manifest.json">
+<title>LeanBuild</title>
+
+<link rel="manifest" href="manifest.json">
+
 <link rel="apple-touch-icon" href="icon-192.png">
 
 <meta name="apple-mobile-web-app-capable" content="yes">
 
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="theme-color" content="#111827">
 
-    <link rel="stylesheet" href="style.css">
+<meta name="theme-color" content="#111827">
+
+<link rel="stylesheet" href="style.css">
+
 </head>
+
 
 <body>
 
+
 <div id="app">
 
-    <header>
-        <h1>LeanBuild</h1>
-        <p>Dein persönlicher Lean-Bulk-Ernährungsplan</p>
-    </header>
+
+<header>
+
+<h1>LeanBuild</h1>
+
+<p>
+Dein persönlicher Lean-Bulk-Ernährungsplan
+</p>
+
+</header>
 
 
-    <main>
 
-        <div class="day-navigation">
-            <button id="previousDay">←</button>
-
-            <h2 id="dayTitle">
-                Montag
-            </h2>
-
-            <button id="nextDay">→</button>
-        </div>
+<main>
 
 
-        <section id="meals">
+<div class="day-navigation">
 
-            <div class="meal-card">
-
-                <h3>Frühstück</h3>
-
-                <p>
-                    Wird geladen...
-                </p>
-
-            </div>
+<button id="previousDay">
+←
+</button>
 
 
-            <div class="meal-card">
-
-                <h3>Mittagessen</h3>
-
-                <p>
-                    Wird geladen...
-                </p>
-
-            </div>
+<h2 id="dayTitle">
+Montag
+</h2>
 
 
-            <div class="meal-card">
+<button id="nextDay">
+→
+</button>
 
-                <h3>Abendessen</h3>
-
-                <p>
-                    Wird geladen...
-                </p>
-
-            </div>
+</div>
 
 
-        </section>
 
 
-    </main>
+<section id="meals">
+
+
+<div class="meal-card" onclick="openMeal(0)">
+
+<h3>
+Frühstück
+</h3>
+
+<p>
+Wird geladen...
+</p>
+
+</div>
+
+
+
+<div class="meal-card" onclick="openMeal(1)">
+
+<h3>
+Mittagessen
+</h3>
+
+<p>
+Wird geladen...
+</p>
+
+</div>
+
+
+
+<div class="meal-card" onclick="openMeal(2)">
+
+<h3>
+Abendessen
+</h3>
+
+<p>
+Wird geladen...
+</p>
+
+</div>
+
+
+</section>
+
+
+
+</main>
+
+
+
+<div id="mealDetail" class="hidden">
+
+
+<div class="detail-box">
+
+
+<button onclick="closeMeal()">
+✕
+</button>
+
+
+<h2 id="detailTitle">
+Mahlzeit
+</h2>
+
+
+<h3>
+Nährwerte
+</h3>
+
+
+<p id="detailMacros"></p>
+
+
+
+<h3>
+Zutaten
+</h3>
+
+
+<ul id="detailIngredients"></ul>
+
+
+
+<h3>
+Zubereitung
+</h3>
+
+
+<ol id="detailPreparation"></ol>
 
 
 </div>
+
+
+</div>
+
+
+
+</div>
+
 
 
 <script src="app.js"></script>
 
 
 </body>
+
 </html>
