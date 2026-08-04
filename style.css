@@ -277,3 +277,6 @@ header p {
     line-height: 1.4;
 
 })
+#mealDetail.hidden {
+    display: none;
+}
