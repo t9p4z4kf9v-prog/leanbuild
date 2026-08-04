@@ -1,1 +1,70 @@
 
+{
+  "week": 1,
+  "days": [
+    {
+      "day": "Montag",
+      "calories": 2695,
+      "protein": 161,
+      "meals": [
+        {
+          "name": "Frühstück",
+          "calories": 540,
+          "protein": 36,
+          "carbs": 58,
+          "fat": 16,
+          "ingredients": [
+            "250 g Skyr",
+            "60 g Haferflocken",
+            "1 Banane",
+            "100 g Heidelbeeren",
+            "15 g Mandeln"
+          ],
+          "preparation": [
+            "Skyr in eine Schüssel geben.",
+            "Haferflocken unterrühren.",
+            "Banane in Scheiben schneiden.",
+            "Heidelbeeren und Mandeln darübergeben."
+          ]
+        },
+        {
+          "name": "Mittagessen",
+          "calories": 1080,
+          "protein": 63,
+          "carbs": 108,
+          "fat": 32,
+          "ingredients": [
+            "200 g Hähnchenbrust",
+            "150 g Reis (roh)",
+            "250 g Brokkoli",
+            "10 g Olivenöl"
+          ],
+          "preparation": [
+            "Reis kochen.",
+            "Hähnchen würzen und anbraten.",
+            "Brokkoli dämpfen.",
+            "Alles mit Olivenöl servieren."
+          ]
+        },
+        {
+          "name": "Abendessen",
+          "calories": 1075,
+          "protein": 62,
+          "carbs": 92,
+          "fat": 35,
+          "ingredients": [
+            "250 g Magerquark",
+            "4 Scheiben Vollkornbrot",
+            "30 g Erdnussmus",
+            "1 Apfel"
+          ],
+          "preparation": [
+            "Quark in eine Schüssel geben.",
+            "Brot mit Erdnussmus bestreichen.",
+            "Apfel in Stücke schneiden."
+          ]
+        }
+      ]
+    }
+  ]
+}
