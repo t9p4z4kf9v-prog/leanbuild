@@ -134,15 +134,15 @@ function openMeal(index) {
 
 
 
-
 function closeMeal() {
 
+    const detail =
+    document.getElementById("mealDetail");
 
-    document.getElementById("mealDetail")
-    .classList.add("hidden");
-
+    detail.classList.add("hidden");
 
 }
+
 
 
 
@@ -195,7 +195,8 @@ updateDay();
 });
 
 
-
+document.getElementById("mealDetail")
+.classList.add("hidden");
 
 
 loadMealData();
