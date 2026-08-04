@@ -1,162 +1,71 @@
-// LeanBuild App Logik
-
+// LeanBuild App 
 let currentDay = 0;
+let mealData = null;
 
+async function loadMealData() {
+    const response = await fetch("data/week1.json");
+    mealData = await response.json();
 
-const weekPlan = [
-
-    {
-        day: "Montag",
-
-        meals: {
-
-            breakfast:
-            "Skyr-Hafer-Bowl mit Banane, Beeren und Mandeln",
-
-            lunch:
-            "Puten-Vollkorn-Wrap mit Gemüse und Hüttenkäse",
-
-            dinner:
-            "Hähnchen-Reis-Gemüse-Pfanne"
-
-        }
-
-    },
-
-
-    {
-        day: "Dienstag",
-
-        meals: {
-
-            breakfast:
-            "Eier mit Vollkornbrot und Obst",
-
-            lunch:
-            "Linsen-Hüttenkäse-Bowl",
-
-            dinner:
-            "Rinderhack mit Kartoffeln und Gemüse"
-
-        }
-
-    },
-
-
-    {
-        day: "Mittwoch",
-
-        meals: {
-
-            breakfast:
-            "Overnight Oats mit Skyr",
-
-            lunch:
-            "Hähnchen-Sandwich",
-
-            dinner:
-            "Puten-Curry mit Reis"
-
-        }
-
-    }
-
-
-];
-
-
-
-function updateDay(){
-
-    const day =
-        weekPlan[currentDay];
-
-
-    document.getElementById("dayTitle")
-        .textContent =
-        day.day;
-
-
-    const meals =
-        document.querySelectorAll(".meal-card");
-
-
-    meals[0]
-        .querySelector("p")
-        .textContent =
-        day.meals.breakfast;
-
-
-    meals[1]
-        .querySelector("p")
-        .textContent =
-        day.meals.lunch;
-
-
-    meals[2]
-        .querySelector("p")
-        .textContent =
-        day.meals.dinner;
-
+    updateDay();
 }
 
+function updateDay() {
 
+    if (!mealData) return;
 
-document
-.getElementById("nextDay")
-.addEventListener(
-    "click",
-    () => {
+    const day = mealData.days[currentDay];
 
-        currentDay++;
+    document.getElementById("dayTitle").textContent = day.day;
 
-        if(currentDay >= weekPlan.length){
+    const mealCards = document.querySelectorAll(".meal-card");
 
-            currentDay = 0;
+    mealCards[0].querySelector("h3").textContent =
+        day.meals[0].name;
 
-        }
+    mealCards[0].querySelector("p").textContent =
+        day.meals[0].ingredients.join(", ");
 
-        updateDay();
+    mealCards[1].querySelector("h3").textContent =
+        day.meals[1].name;
 
+    mealCards[1].querySelector("p").textContent =
+        day.meals[1].ingredients.join(", ");
+
+    mealCards[2].querySelector("h3").textContent =
+        day.meals[2].name;
+
+    mealCards[2].querySelector("p").textContent =
+        day.meals[2].ingredients.join(", ");
+}
+
+document.getElementById("nextDay").addEventListener("click", () => {
+
+    if (!mealData) return;
+
+    currentDay++;
+
+    if (currentDay >= mealData.days.length) {
+        currentDay = 0;
     }
-);
 
+    updateDay();
+});
 
+document.getElementById("previousDay").addEventListener("click", () => {
 
-document
-.getElementById("previousDay")
-.addEventListener(
-    "click",
-    () => {
+    if (!mealData) return;
 
+    currentDay--;
 
-        currentDay--;
-
-
-        if(currentDay < 0){
-
-            currentDay =
-                weekPlan.length - 1;
-
-        }
-
-
-        updateDay();
-
-
+    if (currentDay < 0) {
+        currentDay = mealData.days.length - 1;
     }
-);
 
+    updateDay();
+});
 
+loadMealData();
 
-// Start
-
-updateDay();
 if ("serviceWorker" in navigator) {
-
-    navigator.serviceWorker.register(
-        "service-worker.js"
-    );
-
+    navigator.serviceWorker.register("service-worker.js");
 }
-
